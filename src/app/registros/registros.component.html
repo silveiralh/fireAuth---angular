@@ -1,0 +1,154 @@
+<p>
+  registros works!
+</p>
+<div class="container mt-5 mb-5">
+
+  <form [formGroup]="inserirRegistroForm">
+
+      <table id="example" class="display" style="width:100%">
+          <thead>
+              <tr>
+                  <th class="text-white">Data</th>
+                  <th class="text-white">Categoria</th>
+                  <th class="text-white">Tipo do Registro</th>
+                  <th class="text-white">Descrição</th>
+                  <th class="text-white">Valor</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><input type="text" class="form-control" formControlName="data_created" name="Data"
+                          id="data_created"></td>
+                  <td>
+                      <select name="Categoria" formControlName="categoria" class="form-control"
+                          placeholder="Categoria">
+
+                          <option value="Serviços" selected> Serviços</option>
+                          <option value="Cosmeticos"> Cosméticos</option>
+                          <option value="Produtos"> Produtos em geral</option>
+
+                          <!-- <input type="text" class="form-control" [(ngModel)] = "registro.categoria" name="Categoria" placeholder="First name">  -->
+                      </select></td>
+                  <td>
+                      <select class="form-group" class="form-control" formControlName="tipo" name="tipoEntrada"
+                          placeholder="Entrada/Saída" id="tipo">
+
+                          <option value="Entrada" selected> Entrada</option>
+                          <option value="Saida"> Saída</option>
+                      </select></td>
+                  <td><input type="text" id="descricao" class="form-control" formControlName="descricao"
+                          name="Descricao"></td>
+                  <td><input type="text" id="valor" class="form-control" formControlName="valor" name="Valor">
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <br>
+      <!-- <input type="text" class="form-control" [(ngModel)] = "registro.tipo" name="Tipo"> -->
+      <button type="submit" class="btn btn-default "(click)="onSubmit()">Salvar</button>
+  </form>
+</div>    
+<div class="text-xs-center bg-light" style="color: #fff;  min-height: 100px; padding: 20px;">
+    <section id="tabs" class="project-tab">
+        <div class="container mt-5 mb-5">
+            <h1 class="display-4 text-dark">Registros</h1><br>
+            <div class="row">
+                <div class="col-md-12">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-todos-tab" data-toggle="tab" href="#nav-todos"
+                                role="tab" aria-controls="nav-todos" aria-selected="true">Todos os Registros</a>
+                            <a class="nav-item nav-link" id="nav-entradas-tab" data-toggle="tab" href="#nav-entradas"
+                                role="tab" aria-controls="nav-entradas" aria-selected="false">Entradas</a>
+                            <a class="nav-item nav-link" id="nav-saidas-tab" data-toggle="tab" href="#nav-saidas"
+                                role="tab" aria-controls="nav-saidas" aria-selected="false">Saídas</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-todos" role="tabpanel"
+                            aria-labelledby="nav-todos-tab">
+                            <table class="table" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-dark">Data</th>
+                                        <th class="text-dark">Categoria</th>
+                                        <th class="text-dark">Tipo do Registro</th>
+                                        <th class="text-dark">Descrição</th>
+                                        <th class="text-dark">Valor</th>
+                                        <th class="text-dark"> </th>
+                                        <th class="text-dark"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let registro of todosRegistros |async">
+                                        <td class="text-dark">{{registro.data_created}}</td>
+                                        <td class="text-dark">{{registro.categoria}}</td>
+                                        <td class="text-dark">{{registro.tipo}}</td>
+                                        <td class="text-dark">{{registro.descricao}}</td>
+                                        <td class="text-dark">{{registro.valor}}</td>
+                                        <td class="text-dark"><button type="button" class="btn btn-default"
+                                                (click)="edit(registro, registro.key)" data-toggle="modal"
+                                                data-target="#modalEdit">Editar</button></td>
+                                        <td class="text-dark"><button type="button" class="btn btn-danger"
+                                                (click)="delete(registro.key)">Deletar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="nav-entradas" role="tabpanel" aria-labelledby="nav-entradas-tab">
+                            <table class="table" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-dark">Data</th>
+                                        <th class="text-dark">Categoria</th>
+                                        <th class="text-dark">Descrição</th>
+                                        <th class="text-dark">Valor</th>
+                                        <th class="text-dark"> </th>
+                                        <th class="text-dark"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let registro of todosRegistros |async">
+                                        <td class="text-dark">{{registro.data_created}}</td>
+                                        <td class="text-dark">{{registro.categoria}}</td>
+                                        <td class="text-dark">{{registro.descricao}}</td>
+                                        <td class="text-dark">{{registro.valor}}</td>
+                                        <td class="text-dark"><button type="button" class="btn btn-default"
+                                                (click)="edit(registro, registro.key)">Editar</button></td>
+                                        <td class="text-dark"><button type="button" class="btn btn-danger"
+                                                (click)="delete(registro.key)">Deletar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="nav-saidas" role="tabpanel" aria-labelledby="nav-saidas-tab">
+                            <table class="table" cellspacing="0">
+                                <thead>
+                                    <th class="text-dark">Data</th>
+                                    <th class="text-dark">Categoria</th>
+                                    <th class="text-dark">Descrição</th>
+                                    <th class="text-dark">Valor</th>
+                                    <th class="text-dark"> </th>
+                                    <th class="text-dark"> </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let registro of todosRegistros |async">
+                                        <td class="text-dark">{{registro.data_created}}</td>
+                                        <td class="text-dark">{{registro.categoria}}</td>
+                                        <td class="text-dark">{{registro.descricao}}</td>
+                                        <td class="text-dark">{{registro.valor}}</td>
+                                        <td class="text-dark"><button type="button" class="btn btn-default"
+                                                (click)="edit(registro, registro.key)" data-toggle="modal" 
+                                                data-target="#modalLoginForm">Editar</button></td>
+                                        <td class="text-dark"><button type="button" class="btn btn-danger"
+                                                (click)="delete(registro.key)">Deletar</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
