@@ -1,0 +1,91 @@
+.header{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.row{
+  margin-top: 10px;
+}
+
+.error{
+  color: #9731c7;
+}
+	/* Coded with love by Mutiullah Samim */
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: 150px;
+    margin-bottom: auto;
+    background: snow;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+  }
+  .brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #5f6ef3;
+    padding: 10px;
+    text-align: center;
+    
+  }
+  .brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  .form_container {
+    margin-top: 100px;
+  }
+  .form-control{
+    font-size: 14px;
+    
+
+  }
+  .login_btn {
+    font-size: 14px;
+    background: lightgrey !important;
+    color: #5f6ef3 !important;
+  }
+  .login_btn:focus {
+    font-size: 14px;
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+  .login_container {
+    font-size: 14px;
+    padding: 0 2rem;
+  }
+  .input-group-text {
+    font-size: 1.5em;
+    background: lightgrey !important;
+    color: #5f6ef3 !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+  }
+  .input_user,
+  .input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+  img { 
+    display: inline-block;
+  }

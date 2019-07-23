@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.component.html',
-  styleUrls: ['login.scss']
+  styleUrls: ['login.css']
 })
 export class LoginComponent {
 
@@ -28,26 +28,26 @@ export class LoginComponent {
     });
   }
 
-  tryFacebookLogin(){
-    this.authService.doFacebookLogin()
-    .then(res => {
-      this.router.navigate(['/user']);
-    })
-  }
+  // tryFacebookLogin(){
+  //   this.authService.doFacebookLogin()
+  //   .then(res => {
+  //     this.router.navigate(['/user']);
+  //   })
+  // }
 
-  tryTwitterLogin(){
-    this.authService.doTwitterLogin()
-    .then(res => {
-      this.router.navigate(['/user']);
-    })
-  }
+  // tryTwitterLogin(){
+  //   this.authService.doTwitterLogin()
+  //   .then(res => {
+  //     this.router.navigate(['/user']);
+  //   })
+  // }
 
-  tryGoogleLogin(){
-    this.authService.doGoogleLogin()
-    .then(res => {
-      this.router.navigate(['/user']);
-    })
-  }
+  // tryGoogleLogin(){
+  //   this.authService.doGoogleLogin()
+  //   .then(res => {
+  //     this.router.navigate(['/user']);
+  //   })
+  // }
 
   tryLogin(value){
     this.authService.doLogin(value)

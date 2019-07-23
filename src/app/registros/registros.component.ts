@@ -44,11 +44,11 @@ export class RegistrosComponent implements OnInit {
 
 
   onSubmit() {
-    if (this.key) {
-      this.registroService.update(this.registro, this.key);
-    } else {
-      this.registroService.insert(this.registro)
-    }
-    this.registro = new Registro();
+    // if (this.key) {
+    //   this.registroService.update(this.registro, this.key);
+    // } else {
+    //   this.registroService.insert(this.registro)
+    // }
+    // this.registro = new Registro();
   }
 }
